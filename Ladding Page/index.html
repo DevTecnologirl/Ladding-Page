@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manutenção Hidráulica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Link para a biblioteca Font Awesome para usar o ícone do WhatsApp -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f7fb;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #005f99;
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo h1 {
+      font-size: 30px;
+      font-weight: 600;
+      color: white;
+    }
+
+    /* Navegação */
+    .navbar ul {
+      list-style: none;
+      display: flex;
+    }
+
+    .navbar ul li {
+      margin: 0 20px;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      color: #ff6600;
+    }
+
+    /* Seção Hero */
+    section.hero {
+      background-image: url('../images/img1.jpg'); 
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 120px 20px;
+      text-align: center;
+      box-sizing: border-box;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    section.hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.081);
+    }
+
+    section.hero h1 {
+      font-size: 50px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    section.hero p {
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    section.hero {
+      background-color: #ff6600;
+      color: white;
+      padding: 18px 35px;
+      font-size: 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    section.hero {
+      background-color: #ff4d00;
+      transform: translateY(-5px);
+    }
+
+    .cta-button:hover {
+      background-color: #ff4d00; 
+      transform: translateY(-5px);
+    }
+
+    .cta-button {
+      background-color: #ff6600; 
+      color: white;
+      padding: 18px 35px;
+      font-size: 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Seção de Serviços */
+    section.services {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding-top: 100px;
+    }
+
+    section.services h2 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    section.services p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    /* Cards de Serviços */
+    .service-card {
+      display: inline-block;
+      background-color: #fafafa;
+      width: 30%;
+      margin: 15px;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .service-card p {
+      font-size: 16px;
+      color: #666;
+    }
+
+    /* Slider de Imagens */
+    .service-images {
+      margin-top: 30px;
+      max-width: 100%;
+      height: 400px;
+      background-position: center;
+      background-size: cover;
+      border-radius: 10px;
+      transition: background-image 0.5s ease;
+    }
+
+    /* Seção de Contato */
+    section.contact {
+      padding: 60px 20px;
+      background: linear-gradient(to bottom, #ff6600ef, #ffac53);
+      text-align: center;
+      box-sizing: border-box;
+      padding-top: 100px;
+    }
+
+    section.contact h2 {
+      font-size: 36px;
+      color: white;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    section.contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    section.contact form input,
+    section.contact form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      background-color: #f9f9f9;
+    }
+
+    section.contact form input[type="submit"] {
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    section.contact form input[type="submit"]:hover {
+      background-color: #004d99;
+    }
+
+    section.contact p {
+      margin-top: 20px;
+      font-size: 18px;
+      color: white;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #ff6600;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .service-card {
+        width: 45%;
+      }
+
+      section.hero {
+        padding: 80px 20px;
+      }
+
+      section.hero h1 {
+        font-size: 36px;
+      }
+
+      section.hero p {
+        font-size: 18px;
+      }
+
+      header h1 {
+        font-size: 28px;
+      }
+
+      header .cta-button {
+        font-size: 14px;
+        padding: 12px 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .service-card {
+        width: 100%;
+      }
+
+      section.hero h1 {
+        font-size: 28px;
+      }
+
+      section.hero p {
+        font-size: 16px;
+      }
+
+      section.contact form {
+        padding: 30px;
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+
+      header .cta-button {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+    }
+
+    /* Scroll Padding */
+    html {
+      scroll-padding-top: 80px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1>Manutenção Hidráulica</h1>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="cta-button">Solicite um Orçamento</a>
+    </div>
+  </header>
+
+  <!-- Seção Hero -->
+  <section class="hero">
+    <h1>Serviços de Manutenção Hidráulica Profissional</h1>
+    <p>Atendimento rápido e eficiente para solucionar seus problemas hidráulicos.</p>
+    <a href="#contact" class="cta-button">Peça seu orçamento agora</a>
+  </section>
+
+  <!-- Seção de Serviços -->
+  <section class="services" id="services">
+    <h2>Nossos Serviços</h2>
+    <p>Oferecemos uma ampla gama de serviços de manutenção hidráulica para sua residência ou empresa.</p>
+
+    <div class="service-card" onclick="showImage('reparo')">
+      <h3>Reparo de Vazamentos</h3>
+      <p>Identificamos e solucionamos vazamentos com rapidez e precisão.</p>
+    </div>
+    <div class="service-card" onclick="showImage('instalacao')">
+      <h3>Instalação de Encanamentos</h3>
+      <p>Realizamos instalações de encanamentos para reformas ou construções novas.</p>
+    </div>
+    <div class="service-card" onclick="showImage('manutencao')">
+      <h3>Manutenção de Bombas</h3>
+      <p>Garantimos a eficiência do seu sistema de bombeamento com manutenção regular.</p>
+    </div>
+
+    <!-- Área do Slider -->
+    <div id="serviceImage" class="service-images" style="background-image: url('../images/img2.jpg');"></div>
+  </section>
+
+  <!-- Seção de Contato -->
+  <section class="contact" id="contact">
+    <h2>Entre em Contato</h2>
+    <form action="https://wa.me/552298119479?text=Olá!%20Preciso%20de%20uma%20assistência%20hidráulica." method="get" target="_blank">
+      <input type="text" placeholder="Nome" required><br>
+      <input type="email" placeholder="E-mail" required><br>
+      <input type="tel" placeholder="Telefone" required><br>
+      <textarea placeholder="Descreva o problema" required></textarea><br>
+      <input type="submit" value="Enviar Mensagem">
+    </form>
+    <!-- Adicionando o ícone do WhatsApp ao lado do número -->
+    <p></i> Ou ligue para nós: <a href="https://wa.me/552298119479" target="_blank">(22) 9811-9479</a><i class="fab fa-whatsapp" style="margin: 10px;"></i></p>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2024 Manutenção Hidráulica XYZ. Todos os direitos reservados. | <a href="#">Política de Privacidade</a></p>
+  </footer>
+
+  <!-- Script para mudança das imagens -->
+  <script>
+    // A função para exibir as imagens dos serviços
+    function showImage(service) {
+      var imageContainer = document.getElementById("serviceImage");
+
+      if (service === "reparo") {
+        imageContainer.style.backgroundImage = "url('../images/img2.jpg')";
+      } else if (service === "instalacao") {
+        imageContainer.style.backgroundImage = "url('../images/img3.jpg')";
+      } else if (service === "manutencao") {
+        imageContainer.style.backgroundImage = "url('../images/img4.jpg')";
+      }
+    }
+
+    // Exibir imagem padrão ao carregar a página
+    window.onload = function() {
+      showImage('reparo');
+    };
+  </script>
+
+</body>
+</html>
